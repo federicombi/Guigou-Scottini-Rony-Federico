@@ -37,9 +37,9 @@ const jugador ={
 }
 console.log(jugador.clubes[0]);
 console.log("El Personaje ",personaje.name, " está ", personaje.status)
-/*
+
 function estado(){
     alert("El Personaje "+personaje.name+ " está "+ personaje.status)
-};*/
+};
 
 document.getElementById("result").innerHTML= "El Personaje "+personaje.name+ " está "+ personaje.status;
