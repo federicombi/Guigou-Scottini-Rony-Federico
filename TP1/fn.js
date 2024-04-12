@@ -11,8 +11,9 @@ frutas.forEach(fruta => {
 });
 */
 for(const fruta of frutas){
-    if (fruta == "Manzana")
-        console.log(fruta)
+    if (fruta == "Manzana"){
+        console.log(fruta)}
         else 
             console.log('No es manzana')
 }
+
