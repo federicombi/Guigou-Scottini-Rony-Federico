@@ -46,6 +46,7 @@ function estado(){
                 console.log(data.name);
                 console.log("El Personaje "+data.name+ " está "+ data.status);
                 alert("El Personaje "+data.name+ " está "+ data.status);
+                /*document.getElementById("result").innerHTML= "El Personaje "+data.name+ " está "+ data.status;*/
         }));
 };
 
