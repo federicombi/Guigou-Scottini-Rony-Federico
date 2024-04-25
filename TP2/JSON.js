@@ -44,6 +44,6 @@ function comparar_generos(){
             imagen.width="100";
             imagen.height="100";
             imagen.alt="NO tienen el mismo genero";
-            /*document.getElementById("mensaje").innerHTML= "Tienen distinto género";*/
+            document.getElementById("mensaje").innerHTML= "Tienen distinto género";
         }
 }
