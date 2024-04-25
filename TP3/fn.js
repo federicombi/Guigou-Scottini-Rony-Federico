@@ -9,10 +9,6 @@ let map= L.map("map").setView([-33.0079, -58.5224], 12);
 /*var marker = L.marker([51.5, -10.09]);*/
 console.log("ready");
 
-function probar(){
-    console.log("funca")
-}
-
 function generateUser(){
     const urlRandomUser="https://randomuser.me/api/?nat=ES";
     fetch(urlRandomUser)
