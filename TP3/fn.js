@@ -1,4 +1,3 @@
-
 var nombre, apellido = " ";
 let latitud, longitud = 0;
 let map= L.map("map").setView([-33.0079, -58.5224], 12);
@@ -30,4 +29,3 @@ function createMap(){
     marker = L.marker([latitud,longitud]).addTo(map);
     marker.bindPopup("<b>"+nombre+" "+apellido+"</b>").openPopup();
 }
-
