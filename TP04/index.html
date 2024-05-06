@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="css\styles.css">
     </head>
     <body style="background-color: azure;">
-
         <table>
             <caption>
                 <h1>TP04</h1>
@@ -14,36 +13,58 @@
             <tr>
                 <td>
                     <div id="inA">
-                        <h2> Ingrese 3 numeros: </h2>
+                        <h2> Ingresa 3 numeros: </h2>
                         <input type="number" id="groupA" autofocus>
-                        <button id="inA" onclick="take('groupA')">Ingresar</button>
+                        <button id="A" onclick="take('groupA')">Ingresar</button>
                     </div>
                     <p id="errorA"></p>
+                    <div id="aCompleted">
+                        <h3>A</h3>
+                        <p>Completado</p>
+                    </div>
                 </td>
                 <td>
                     <div id="inB">
-                        <h2> Ingrese 3 numeros: </h2>
-                        <input type="number" id="groupB" autofocus>
-                        <button id="inB" onclick="take('groupB')">Ingresar</button>
+                        <h2> Ingresa 3 numeros: </h2>
+                        <input type="number" id="groupB">
+                        <button id="B" onclick="take('groupB')">Ingresar</button>
                     </div>
                     <p id="errorB"></p>
+                    <div id="bCompleted">
+                        <h3>B</h3>
+                        <p>Completado</p>
+                    </div>
+                </td>
+            </tr>
+            <tr id="restart">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="celdaA">
+                    <div id="photosGroupA">
+                        <h2><b>GRUPO A:</b></h2> 
+                            <img id="p0" src="">
+                            <img id="p1" src="">
+                            <img id="p2" src="">
+                    </div>
+                </td>
+                <td id="celdaB">
+                    <div id="photosGroupB"> 
+                        <h2><b>GRUPO B:</b></h2> 
+                        <p>
+                            <img id="p3" src="">
+                            <img id="p4" src="">
+                            <img id="p5" src="">
+                        </p>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <p> 
-                        <img id="p0" src="">
-                        <img id="p1" src="">
-                        <img id="p2" src="">
-                    </p>
-                </td>
-                <td>
-                    <p> 
-                        <img id="p3" src="">
-                        <img id="p4" src="">
-                        <img id="p5" src="">
-                    </p>
-                </td>
+                <td colspan="2">
+                    <p id="error"></p>
+                    <button onclick="reset()">Reiniciar</button>
+                </td><td></td>
             </tr>
         </table>        
     </body>
