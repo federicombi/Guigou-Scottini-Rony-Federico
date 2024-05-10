@@ -37,13 +37,13 @@ function comparar_generos(){
         imagen.width="100";
         imagen.height="100";
         imagen.alt="tienen el mismo genero";
-        document.getElementById("mensaje").innerHTML= "Tienen el mismo género";
+        document.getElementById("mensaje").innerHTML= "Tienen el mismo genero";
         }
         else {
             imagen.src= "https://cdn.pixabay.com/photo/2012/04/13/00/22/red-31226_960_720.png";
             imagen.width="100";
             imagen.height="100";
             imagen.alt="NO tienen el mismo genero";
-            document.getElementById("mensaje").innerHTML= "Tienen distinto género";
+            document.getElementById("mensaje").innerHTML= "Tienen distinto genero";
         }
 }
