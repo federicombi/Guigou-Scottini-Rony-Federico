@@ -122,21 +122,6 @@ function showPhotos(bool){
         document.getElementById("photosGroupB").style.display="none";
     }
 }
-function reset(){
-    document.getElementById("aCompleted").style.display = 'none';
-    document.getElementById("bCompleted").style.display = 'none';
-    document.getElementById("cantInB").innerHTML="Ingresados: 0";
-    document.getElementById("cantInA").innerHTML="Ingresados: 0";
-    showPhotos(false);
-    group=[];
-    groupPhotos = [];
-    iA= 0;
-    iB= 3;
-    i=0;
-    document.getElementById("inA").style.display = 'block';
-    document.getElementById("inB").style.display = 'block';
-    document.getElementById("error").innerHTML= "";
-}
 
 */
 
@@ -153,35 +138,6 @@ photoN="";
 
 const urlRickMorty= "https://rickandmortyapi.com/api/character/";
 
-function asignGroup(groupClass){
-    if (groupClass == "groupA"){
-        i= iA;
-        iA++;
-        mensajeError="errorA";
-        inX="inA";
-        completed="aCompleted"
-    } else if (groupClass == "groupB"){
-        i= iB;
-        iB++;
-        mensajeError="errorB";
-        inX="inB";
-        completed="bCompleted"
-    }
-}
-function alreadyIn(char){
-    let result= false,tope=groupClass.length;
-    for(const element of groupA){
-        if (char == element){
-            result=true;
-        } 
-    }
-    for(const element of groupB){
-        if (char == element){
-            result=true;
-        } 
-    }
-    return result;
-}
 function take(groupClass){
     asignGroup(groupClass);
     char= Number(Number(document.getElementById(groupClass).value).toFixed(0));
@@ -194,7 +150,7 @@ function take(groupClass){
                 document.getElementById(mensajeError).innerHTML= "El numero debe ser mayor a 0";
                 correcti(groupClass);
             }   else if (alreadyIn(char)){
-                    document.getElementById(mensajeError).innerHTML= "Ese número ya se ingresó";
+                    document.getElementById(mensajeError).innerHTML= "Ese numero ya se ingresó";
                     correcti(groupClass);
                 } else{
                         document.getElementById(mensajeError).innerHTML= "";
@@ -209,41 +165,29 @@ function take(groupClass){
     console.clear();
     console.log("GRUPO A: "+groupA);
     console.log("GRUPO B: "+groupB);  
-                
-   //// if(group[tope-1] != undefined){
-    //    document.getElementById(inX).style.display = 'none';
-    //    document.getElementById(completed).style.display = 'block';
-    //}
-   // if(group[topeA-1] != undefined){
-    //    console.log(group);
-    //    console.log("Grupo A y B ingresados");
-   //     getPhotos();
-   //     showPhotos(true);
-   // }
-    
 }
 function complete(){
-    //document.getElementById("photosA").value= "";
-    //document.getElementById("photosB").value= "";
     if (groupA.length == groupB.length){
-        document.getElementById("error").innerHTML="";
+        try{document.getElementById("error").innerHTML="";} catch{console.log("no hubo errores en el ingreso")};
         getPhotos(groupA, "photosA");
         getPhotos(groupB, "photosB");
         showPhotos(true);
     }else{
         document.getElementById("error").innerHTML="los grupos deben tener la misma cantidad de integrantes";
     }
+    document.getElementById("inA").style.display = 'none';
+    document.getElementById("inB").style.display = 'none';
 }
 function getPhotos(group, photos){ 
     tope = group.length;
+    console.log(tope);
     const container = document.querySelector("."+photos);
     (fetch(urlRickMorty+group)
         .then(response => response.json())
             .then (data =>{
-                console.log("largo: "+data.lenght);
-                if(data.lenght > 1){
+                if(data[1]!= undefined){
                     for(element of data){
-                        for(i=0;i<=tope;i++){
+                        for(i=0;i<tope;i++){
                             if (element.id == group[i]){
                                 let img = document.createElement("img");
                                 img.src = element.image;
@@ -272,6 +216,21 @@ function showPhotos(bool){
         document.getElementById("photosGroupB").style.display="none";
     }
 }
+function reset(){
+    //document.getElementById("aCompleted").style.display = 'none';
+    //document.getElementById("bCompleted").style.display = 'none';
+    document.getElementById("cantInB").innerHTML="Ingresados: 0";
+    document.getElementById("cantInA").innerHTML="Ingresados: 0";
+    showPhotos(false);
+    groupA=[];
+    groupB=[];
+    iA= 0;
+    iB= 0;
+    i=0;
+    document.getElementById("inA").style.display = 'block';
+    document.getElementById("inB").style.display = 'block';
+    document.getElementById("error").innerHTML= "";
+}
 function cleanField(groupClass){
     document.getElementById(groupClass).value="";
 }
@@ -282,3 +241,33 @@ function correcti(groupClass){
         iB= i;
     }
 }
+function asignGroup(groupClass){
+    if (groupClass == "groupA"){
+        i= iA;
+        iA++;
+        mensajeError="errorA";
+        inX="inA";
+        completed="aCompleted"
+    } else if (groupClass == "groupB"){
+        i= iB;
+        iB++;
+        mensajeError="errorB";
+        inX="inB";
+        completed="bCompleted"
+    }
+}
+function alreadyIn(char){
+    let result= false;
+    for(const element of groupA){
+        if (char == element){
+            result=true;
+        } 
+    }
+    for(const element of groupB){
+        if (char == element){
+            result=true;
+        } 
+    }
+    return result;
+}
+
